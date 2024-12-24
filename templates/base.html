@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ru"> 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Knowledge Base</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            background-color: #fefefe;
+            color: #2c3e50;
+        }
+
+        header {
+            
+            padding: 15px 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav li {
+            margin: 0 15px;
+        }
+
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 1.1rem;
+            padding: 10px 20px;
+            border-radius: 50px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: #1abc9c;
+            color: #ffffff;
+        }
+
+        main {
+            flex-grow: 1;
+            padding: 40px;
+        }
+
+        footer {
+            background-color: #1abc9c;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            font-size: 1rem;
+            margin-top: auto;
+            box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 1.1rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('main') }}">Главная</a></li>
+                {% if session.get('is_admin') %}
+                    <li><a href="{{ url_for('users') }}">Пользователи</a></li>
+                {% endif %}
+                {% if 'user_id' in session %}
+                    <li><a href="{{ url_for('profile') }}">Профиль</a></li>
+                    <li><a href="{{ url_for('logout') }}">Выход</a></li>
+                {% else %}
+                    <li><a href="{{ url_for('login') }}">Войти</a></li>
+                    <li><a href="{{ url_for('register') }}">Регистрация</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer>
+        <p>&copy; Чернухина Полина, ФБИ-23. 2024</p>
+    </footer>
+</body>
+</html>

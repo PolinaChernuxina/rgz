@@ -1,0 +1,162 @@
+<header>
+    <h1>Объявления RU</h1>
+</header>
+
+{% extends 'base.html' %}
+{% block content %}
+<style>
+
+    header {
+        background-color: #1abc9c;
+        color: white;
+        padding: 0px 30px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    header h1 {
+        font-size: 2.5rem;
+        margin: 0;
+    }
+
+    .container {
+        max-width: 600px;
+        margin: 40px auto;
+        padding: 30px;
+        
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+    }
+
+    h2 {
+        text-align: center;
+        color: #333;
+        font-size: 2rem;
+        margin-bottom: 20px;
+    }
+    nav {
+        display: flex;
+        justify-content: center;
+        background-color: rgba(28,28,28,0);
+        padding: 15px 0;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        border-bottom: 2px solid #1abc9c;
+    }
+    nav a {
+        color: #1abc9c;
+        text-decoration: none;
+        color: white;
+        padding: 10px 20px;
+        margin: 0 10px;
+        font-size: 1.2rem;
+        font-weight: bold;
+        border-radius: 50px;
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    nav a:hover {
+        background-color: #1abc9c;
+        
+    }
+    .profile-form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .form-group label {
+        font-weight: bold;
+        color: #333;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        width: 100%;
+        padding: 12px;
+        font-size: 1rem;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-group textarea {
+        height: 120px;
+    }
+
+    .form-actions {
+        text-align: center;
+    }
+
+    .submit-btn {
+        background-color: #1abc9c;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 1rem;
+        transition: background-color 0.3s, transform 0.2s;
+    }
+
+    .submit-btn:hover {
+        background-color: #16a085;
+        transform: scale(1.05);
+    }
+
+    .back-link {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .back-link a {
+        color: #1abc9c;
+        text-decoration: none;
+        font-size: 1rem;
+        font-weight: bold;
+        transition: color 0.3s;
+    }
+
+    .back-link a:hover {
+        color: #16a085;
+    }
+
+    footer {
+        background-color: #1abc9c;
+        color: white;
+        text-align: center;
+        padding: 15px 0;
+        font-size: 1rem;
+        margin-top: auto;
+        box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    footer p {
+        margin: 0;
+        font-size: 1.1rem;
+    }
+</style>
+<div class="container">
+    <h1>Редактировать пользователя</h1>
+    <form method="POST" enctype="multipart/form-data">
+        <label for="fullname">Полное имя:</label>
+        <input type="text" name="fullname" value="{{ user.fullname }}" required>
+
+        <label for="email">Электронная почта:</label>
+        <input type="email" name="email" value="{{ user.email }}" required>
+
+        <label for="about">О пользователе:</label>
+        <textarea name="about">{{ user.about }}</textarea>
+
+        <label for="avatar">Изображение:</label>
+        <input type="file" name="avatar">
+
+        <button type="submit">Сохранить изменения</button>
+    </form>
+
+</div>
+{% endblock %}
+
+<footer>
+    <p>&copy; Чернухина Полина, ФБИ-23. 2024</p>
+</footer>

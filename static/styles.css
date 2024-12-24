@@ -1,0 +1,177 @@
+/* Общие стили для сайта */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #fefefe;
+    margin: 0;
+    padding: 0;
+    color: #2c3e50;
+    line-height: 1.8;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+/* Стили для шапки */
+header {
+    background-color: #1abc9c;
+    color: white;
+    padding: 10px 30px;
+    text-align: left;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+}
+
+/* Стили для навигации */
+nav {
+    margin: 8px 0;
+    text-align: center;
+    background-color: #ffffff;
+    padding: 15px 0;
+    border-bottom: 1px solid #1abc9c88;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+nav a {
+    color: #1abc9c;
+    margin: 0 10px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.2rem;
+    padding: 10px 20px;
+    border-radius: 20px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+nav a:hover {
+    background-color: #1abc9c;
+    color: white;
+}
+
+/* Стили для карточек объявлений */
+.ads-card {
+    background-color: white;
+    padding: 25px;
+    margin-bottom: 30px;
+    border-radius: 15px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ads-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.ads-card h3 {
+    font-size: 1.8rem;
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+
+.ads-card p {
+    color: #7f8c8d;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+.ads-card .author {
+    font-size: 1rem;
+    color: #1abc9c;
+    font-weight: bold;
+}
+
+/* Стили для форм */
+form {
+    max-width: 700px;
+    width: 90%;
+    background-color: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+form input, form textarea {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    color: #2c3e50;
+}
+
+form input:focus, form textarea:focus {
+    outline: none;
+    border-color: #1abc9c;
+    box-shadow: 0 0 8px rgba(26, 188, 156, 0.5);
+}
+
+form button {
+    background-color: #178670;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s;
+}
+
+form button:hover {
+    background-color: #0f6755;
+    transform: scale(1.1);
+}
+
+/* Стили для профиля */
+.profile-card {
+    background-color: white;
+    padding: 30px;
+    margin-top: 30px;
+    border-radius: 15px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.profile-card img {
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    margin-bottom: 20px;
+}
+
+.profile-card h2 {
+    font-size: 2rem;
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.profile-card p {
+    color: #7f8c8d;
+    font-size: 1.1rem;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+    }
+
+    header h1 {
+        font-size: 2rem;
+    }
+
+    nav a {
+        font-size: 1rem;
+        margin: 0 8px;
+    }
+}

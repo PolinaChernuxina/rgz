@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Редактировать профиль</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f7fc;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: #1abc9c;
+            color: white;
+            padding: 20px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 30px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .profile-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .form-group label {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            font-size: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group textarea {
+            height: 120px;
+        }
+
+        .form-actions {
+            text-align: center;
+        }
+
+        .submit-btn {
+            background-color: #1abc9c;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .submit-btn:hover {
+            background-color: #16a085;
+            transform: scale(1.05);
+        }
+
+        .back-link {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .back-link a {
+            color: #1abc9c;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .back-link a:hover {
+            color: #16a085;
+        }
+
+        footer {
+            background-color: #1abc9c;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            font-size: 1rem;
+            margin-top: auto;
+            box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 1.1rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Объявления RU</h1>
+    </header>
+    <div class="container">
+        <h2>Редактировать профиль</h2>
+        <form method="POST" enctype="multipart/form-data" class="profile-form">
+            <div class="form-group">
+                <label for="fullname">Полное имя:</label>
+                <input type="text" name="fullname" value="{{ user.fullname }}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" name="email" value="{{ user.email }}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="about">О себе:</label>
+                <textarea name="about">{{ user.about }}</textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="avatar">Аватар:</label>
+                <input type="file" name="avatar">
+            </div>
+
+            <div class="form-actions">
+                <button type="submit" class="submit-btn">Сохранить изменения</button>
+            </div>
+        </form>
+
+        <div class="back-link">
+            <a href="{{ url_for('profile') }}">Назад</a>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; Чернухина Полина, ФБИ-23. 2024</p>
+    </footer>
+</body>
+</html>
